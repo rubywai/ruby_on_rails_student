@@ -1,0 +1,7 @@
+<h1 align="center">This is Our Student Page</h1>
+Total Student 
+<%= (Array @student).length()  %>
+<% (Array @student).each do |user| %>
+  <h6><%= user.email %></h6>
+  <h6><%= user.password %></h6>
+<% end %>

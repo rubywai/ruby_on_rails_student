@@ -1,7 +1,33 @@
 <h1 align="center">This is Our Student Page</h1>
-Total Student 
-<%= (Array @student).length()  %>
-<% (Array @student).each do |user| %>
-  <h6><%= user.email %></h6>
-  <h6><%= user.password %></h6>
+Total Student <%= Student.all.length() %>
+<br/>
+<table class="table table-bordered table-dark">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Name</th>
+      <th scope="col">Email</th>
+      <th scope="col">Phone</th>
+      <th scope="col">Address</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% id = 1%>
+<% Student.all.each do |user| %>
+      <tr>
+      <th scope="row"><%= id %></th>
+      <td> <%= user.name %></td>
+      <td> <%= user.email %></td>
+      <td> <%= user.address %></td>
+      <td> <%= user.phone %></td>
+      <td> <%= link_to"View", student_path(:id => user.id) , class:"nav-link" %> </td>
+      <td> <%= link_to"Edit", edit_path(:id => user.id) , class:"nav-link" %> </td>
+      <td> <%= link_to"Delete", delete_path(:id => user.id) , class:"nav-link" %> </td>
+    </tr>
+    <% id += 1 %>
 <% end %>
+</tbody>
+</table>
+<div align="center">
+<%= button_to"Delete All", student_path,method: :delete ,class:"btn btn-dark" %>
+</div>

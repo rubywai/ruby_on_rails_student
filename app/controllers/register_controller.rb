@@ -2,6 +2,11 @@ class RegisterController  < ApplicationController
     def index
        @student = Student.new
     end
+    
+    def show
+        @students = Stuent.new
+    end
+
     def new
         @student = Student.new(student_parms)
         if @student.save
@@ -14,6 +19,6 @@ class RegisterController  < ApplicationController
     end
     private
     def student_parms
-        params.require(:student).permit(:email, :password , :password_confirmation)
+        params.require(:student).permit(:email, :password , :name , :address , :phone)
     end
 end

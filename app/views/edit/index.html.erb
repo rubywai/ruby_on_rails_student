@@ -1,5 +1,5 @@
-<h1>Sign Up</h1>
-<%= form_with model: @student, url: register_path do |form| %>
+<h1>Edit Student</h1>
+<%= form_with model: @student, url: edit_path do |form| %>
 <% if @student.errors.any?  %>
  <div class = "alert alert-danger">
    <% @student.errors.full_messages.each do|messages|  %>
@@ -7,6 +7,10 @@
    <% end %>
  </div>
 <% end %>
+<div class = "mb-3">
+  <%= form.label :id %>
+  <%= form.text_field :id , class:"form-control" ,placeholder: "Id", :readonly => true%>
+</div>
 <div class = "mb-3">
   <%= form.label :name %>
   <%= form.text_field :name , class:"form-control" ,placeholder: "Name" %>
@@ -17,7 +21,7 @@
 </div>
 <div class = "mb-3">
   <%= form.label :password %>
-  <%= form.password_field :password ,class:"form-control", placeholder: "Password" %>
+  <%= form.password_field :password ,class:"form-control", placeholder: "NewPassword" %>
 </div>
 <div class = "mb-3">
   <%= form.label :address %>
